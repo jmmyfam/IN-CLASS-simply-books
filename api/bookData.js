@@ -1,10 +1,10 @@
 import { clientCredentials } from '../utils/client';
 // API CALLS FOR BOOKS
 
-const dbUrl = clientCredentials.databaseURL;
+const endpoint = clientCredentials.databaseURL;
 
 const getBooks = (uid) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/books.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ const getBooks = (uid) => new Promise((resolve, reject) => {
 });
 
 const deleteBook = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books/${firebaseKey}.json`, {
+  fetch(`${endpoint}/books/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const deleteBook = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books/${firebaseKey}.json`, {
+  fetch(`${endpoint}/books/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const createBook = (bookObj) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books.json`, {
+  fetch(`${endpoint}/books.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const createBook = (bookObj) => new Promise((resolve, reject) => {
 });
 
 const updateBook = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/books/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const updateBook = (payload) => new Promise((resolve, reject) => {
 });
 
 const booksOnSale = (uid) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/books.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

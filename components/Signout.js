@@ -7,7 +7,7 @@ function Signout() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
     >
-      <Button type="button" size="lg" className="copy-btn" onClick={signOut}>
+      <Button type="button" size="small" className="copy-btn" onClick={signOut}>
         Sign Out
       </Button>
     </div>
