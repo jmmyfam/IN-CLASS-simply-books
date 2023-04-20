@@ -38,20 +38,20 @@ const getSingleBook = (firebaseKey) => new Promise((resolve, reject) => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-    },
+    }, // you technically do not need the options object for GET requests, but using it here for consistency
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => resolve(data)) // will resolve a single object
     .catch(reject);
 });
 
-const createBook = (bookObj) => new Promise((resolve, reject) => {
+const createBook = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(bookObj),
+    body: JSON.stringify(payload),
   })
     .then((response) => response.json())
     .then((data) => resolve(data))
@@ -89,8 +89,8 @@ const booksOnSale = (uid) => new Promise((resolve, reject) => {
 export {
   getBooks,
   createBook,
+  booksOnSale,
   deleteBook,
   getSingleBook,
   updateBook,
-  booksOnSale,
 };
